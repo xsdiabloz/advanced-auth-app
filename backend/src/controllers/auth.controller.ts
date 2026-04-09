@@ -126,7 +126,7 @@ export const forgotPassword = async (req: Request, res: Response) => {
     const user = await User.findOne({ email });
     if (!user) {
       return res
-        .status(400)
+        .status(404)
         .json({ success: false, message: "User not found" });
     }
 
@@ -178,6 +178,22 @@ export const resetPassword = async (req: Request, res: Response) => {
       .json({ success: true, message: "Password reset successful" });
   } catch (error) {
     console.log("Error in resetPassword ", error);
+    res.status(400).json({ success: false, message: (error as Error).message });
+  }
+};
+
+export const checkAuth = async (req: Request, res: Response) => {
+  try {
+    const user = await User.findById(req.userId);
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
+
+    res.status(200).json({ success: true, user });
+  } catch (error) {
+    console.log("Error in checkAuth ", error);
     res.status(400).json({ success: false, message: (error as Error).message });
   }
 };
