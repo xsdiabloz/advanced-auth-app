@@ -1,9 +1,11 @@
 import { Routes } from "react-router";
-import FloatingShapes from "./components/FloatingShapes";
 import { Route } from "react-router";
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
+import EmailVerificationPage from "./pages/EmailVerificationPage";
+import FloatingShapes from "./components/FloatingShapes";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/verify-email" element={<EmailVerificationPage />} />
       </Routes>
     </div>
   );

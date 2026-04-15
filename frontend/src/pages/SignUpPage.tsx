@@ -66,7 +66,7 @@ const SignUpPage = () => {
         <p className="text-sm text-gray-400">
           Already have an account?{" "}
           <Link to={"/login"} className="text-green-400 hover:underline">
-            Login
+            Log in
           </Link>
         </p>
       </div>
